@@ -25,20 +25,34 @@ in the next step.
 ## First-time setup
 
 1. Unzip the `clipforge` folder somewhere easy to find, e.g. `C:\Users\you\clipforge`.
-2. Open Command Prompt and navigate into the folder:
-   ```
-   cd C:\Users\you\clipforge
-   ```
-3. Install dependencies (only needed once, takes a few minutes):
-   ```
-   npm install
-   ```
-4. Launch the app in development mode:
-   ```
-   npm run dev
-   ```
-   A window should open with the editor. Leave the Command Prompt window
-   open in the background — closing it closes the app while in dev mode.
+2. That's it for setup — you don't need to open Command Prompt. Use one of
+   the two scripts below depending on what you want.
+
+## Option A: Just try it out (quickest)
+
+Double-click **`launch-clipforge.bat`**.
+
+First run installs everything automatically (a few minutes, one-time), then
+opens the editor. Every run after that opens instantly. Closing the black
+console window that appears also closes the app — that's expected, it's
+just showing you progress/logs.
+
+## Option B: Install it as a real Windows app (recommended once you like it)
+
+Double-click **`build-installer.bat`**.
+
+This installs dependencies (if needed) and packages ClipForge into a proper
+Windows installer. When it finishes, a folder named `release` opens
+automatically — inside it, run:
+
+```
+ClipForge Setup 0.1.0.exe
+```
+
+That gives you a normal Windows install: pick an install folder, get a
+Start Menu entry and desktop shortcut, and an uninstaller listed in
+"Add or remove programs." From then on you launch ClipForge like any other
+app — no more `.bat` files or console windows.
 
 ## Using the editor
 
@@ -65,16 +79,9 @@ the **exported MP4** renders true crossfades.
 
 ## Building a standalone Windows .exe (optional)
 
-Once you're happy with the app, you can package it into a proper installer
-so you don't need to run `npm run dev` every time:
-
-```
-npm run build
-```
-
-This produces an installer in the `release` folder (e.g.
-`ClipForge Setup 0.1.0.exe`). Run that installer and ClipForge will show up
-as a normal Windows app you can launch from the Start Menu.
+Covered above in **Option B** — just double-click `build-installer.bat`.
+If you prefer doing it manually from Command Prompt instead, the equivalent
+commands are `npm install` then `npm run build`.
 
 ## How it's built (if you want to extend it)
 
